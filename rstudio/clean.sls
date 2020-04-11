@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- from tplroot ~ "/map.jinja" import rstudio with context %}
+
 include:
-  - .server.package.clean
-  - .dekstop.archive.clean
-  - .desktop.package.clean
+             {%- if grains.os_family in ('MacOS',) %}
+  - .desktop.clean
+             {%- else %}
+  - .server.clean
+  - .desktop.clean
+             {%- endif %}

@@ -5,6 +5,8 @@ rstudio-formula
 
 Formula to manage RStudio on GNU/Linux (server/desktop) and MacOS (desktop).
 
+R is available in 'rlang-formula'.
+
 
 |img_travis| |img_sr|
 

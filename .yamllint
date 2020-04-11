@@ -12,7 +12,9 @@ ignore: |
   node_modules/
   test/**/states/**/*.sls
   .kitchen/
+  bin/kitchen
   rstudio/osfamilymap.yaml
+  rstudio/oscodenamemap.yaml
   pillar.example
 
 yaml-files:

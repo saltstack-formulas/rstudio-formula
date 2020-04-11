@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: ft=jinja
 
-{#- Get the `tplroot` from `tpldir` #}
 {%- set tplroot = tpldir.split('/')[0] %}
-{#- Start imports as #}
 {%- import_yaml tplroot ~ "/defaults.yaml" as default_settings %}
 {%- import_yaml tplroot ~ "/osfamilymap.yaml" as osfamilymap %}
 {%- import_yaml tplroot ~ "/oscodenamemap.yaml" as oscodenamemap %}
@@ -24,28 +22,41 @@
 
 {%- set rstudio = salt['grains.filter_by']( {'defaults': defaults}, default='defaults', merge=_config) %}
 
+{%- if rstudio.desktop.pkg.use_upstream_macapp %}
+       {%- set dir = '%s-%s'|format(rstudio.desktop.pkg.name, rstudio.desktop.version) %}
+       {%- set url = '%s/desktop/%s/%s-%s.%s'|format(rstudio.desktop.pkg.macapp.uri,
+                                                     rstudio.desktop.pkg.macapp.uri_part,
+                                                     rstudio.desktop.pkg.name,
+                                                     rstudio.desktop.version,
+                                                     rstudio.desktop.pkg.macapp.suffix) %}
+       {%- do rstudio.desktop.pkg.macapp.update({ 'source': url }) %}
+{%- endif %}
+
 {%- for comp in ('desktop', 'server') %}
-    {%- if rstudio[comp]['pkg']['use_upstream_archive'] %}
+    {%- if rstudio[comp] and rstudio[comp]['pkg']['use_upstream_archive'] %}
            {%- set dir = '%s-%s'|format(rstudio[comp].pkg.name, rstudio[comp]['version']) %}
-           {%- set url = '%s/%s/%s/%s-%s-%s'|format(rstudio[comp]['pkg']['archive']['uri'],
-                                                            comp,
-                                                    rstudio[comp]['pkg']['archive']['uri_part'],
-                                                    rstudio[comp]['pkg']['name'],
-                                                    rstudio[comp]['version'],
-                                                    rstudio[comp]['pkg']['archive']['suffix']) %}
-           {%- do rstudio.config.update({'path': rstudio.dir.archive + '/' + dir }) %},
-           {%- do rstudio[comp]['pkg']['archive'].update({ 'name': rstudio.dir.archive + '/' + dir,
+           {%- if 'archive' in rstudio[comp]['pkg'] %}
+                  {%- set url = '%s/%s/%s/%s-%s%s'|format(rstudio[comp]['pkg']['archive']['uri'],
+                                                                   comp,
+                                                          rstudio[comp]['pkg']['archive']['uri_part'],
+                                                          rstudio[comp]['pkg']['name'],
+                                                          rstudio[comp]['version'],
+                                                          rstudio[comp]['pkg']['archive']['suffix']) %}
+                  {%- do rstudio[comp]['config'].update({'path': rstudio.dir.archive + '/' + dir }) %},
+                  {%- do rstudio[comp]['pkg']['archive'].update({ 'name': rstudio.dir.archive + '/' + dir,
                                                            'source': url }) %}
+           {%- endif %}
     {%- endif %}
 
-    {%- if rstudio[comp]['pkg']['use_upstream_package_directurl'] %}
-           {%- set url = '%s/%s/%s/%s-%s-%s'|format(rstudio[comp]['pkg']['archive']['uri'],
-                                                            comp,
-                                                    rstudio[comp]['pkg']['archive']['uri_part'],
-                                                    rstudio[comp]['pkg']['name'],
-                                                    rstudio[comp]['version'],
-                                                    rstudio[comp]['pkg']['archive']['suffix']) %}
+    {%- if rstudio[comp]['pkg']['use_upstream_packageurl'] %}
+           {%- if 'packageurl' in rstudio[comp]['pkg'] %}
+                  {%- set url = '%s/%s/%s/%s-%s%s'|format(rstudio[comp]['pkg']['packageurl']['uri'],
+                                                                   comp,
+                                                           rstudio[comp]['pkg']['packageurl']['uri_part'],
+                                                           rstudio[comp]['pkg']['name'],
+                                                           rstudio[comp]['version'],
+                                                           rstudio[comp]['pkg']['packageurl']['suffix']) %}
+                  {%- do rstudio[comp]['pkg']['packageurl'].update({ 'source': url }) %}
            {%- endif %}
-           {%- do rstudio[comp]['pkg']['archive'].update({ 'source': url }) %}
     {%- endif %}
 {%- endfor %}

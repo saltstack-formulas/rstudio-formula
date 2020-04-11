@@ -10,3 +10,5 @@ rstudio-desktop-package-clean:
     - names:
       - {{ rstudio.desktop.pkg.name }}
     - reload_modules: true
+  file.absent:
+    - name: {{ rstudio.dir.tmp }}/rstudio-desktop-{{ rstudio.desktop.version }}

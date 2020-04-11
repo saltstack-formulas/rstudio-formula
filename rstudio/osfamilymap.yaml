@@ -21,14 +21,14 @@ Debian:
       deps:
         - r-base
       name: rstudio-server
-      directurl:
+      packageurl:
         name: rstudio-server-rhel
         suffix: '-amd64.deb'
   desktop:
     pkg:
       archive:
         suffix: '-amd64-debian.tar.gz'
-      directurl:
+      packageurl:
         suffix: '-amd64.deb'
 
 RedHat:
@@ -36,15 +36,15 @@ RedHat:
     pkg:
       deps:
         - epel-release
-        - r-base
+        - R
       name: rstudio-server-rhel
-      directurl:
+      packageurl:
         suffix: '-x86_64.rpm'
   desktop:
     pkg:
       archive:
         suffix: '-x86_64-fedora.tar.gz'
-      directurl:
+      packageurl:
         suffix: '-x86_64.rpm'
 
 Suse:
@@ -54,13 +54,13 @@ Suse:
         - libgfortran43
         - R-base
       name: rstudio-server
-      directurl:
+      packageurl:
         suffix: '-x86_64.rpm'
   desktop:
     pkg:
       archive:
         suffix: '-x86_64.fedora.tar.gz'
-      directurl:
+      packageurl:
         suffix: '-x86_64.rpm'
 
 Windows:
@@ -73,16 +73,19 @@ Windows:
     pkg:
       name: RStudio
       archive:
-        uri_dir: windows
+        uri_part: windows
         suffix: '.zip'
+        source_hash: 7fd3bc1b7464ec0d69e1d88b12f3e824684a507b6431927441138986cda59226
 
 MacOS:
   rootuser: {{ macos_rootuser | d('') }}
   rootgroup: {{ macos_rootgroup | d('') }}
   desktop:
-    use_upstream_archive: false
-    use_upstream_macapp: true
     pkg:
       name: RStudio
-      archive:
-        suffix: '.dmg'
+      use_upstream_archive: false
+      use_upstream_macapp: true
+      macapp:
+        uri_part: 'macos'
+        suffix: dmg
+        source_hash: b67c987569e4638f14d64178ce34201e036f7dd318917f99a7624036c3f56885

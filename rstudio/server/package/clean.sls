@@ -10,3 +10,5 @@ rstudio-server-package-clean:
     - names:
       - {{ rstudio.server.pkg.name }}
     - reload_modules: true
+  file.absent:
+    - name: {{ rstudio.dir.tmp }}/rstudio-server-{{ rstudio.server.version }}

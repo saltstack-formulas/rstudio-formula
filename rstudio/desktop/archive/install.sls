@@ -2,15 +2,12 @@
 # vim: ft=sls
 
 {%- set tplroot = tpldir.split('/')[0] %}
-{%- from tplroot ~ "/map.jinja" import rstudio-desktop with context %}
+{%- from tplroot ~ "/map.jinja" import rstudio with context %}
 {%- from tplroot ~ "/macros.jinja" import format_kwargs with context %}
 
-rstudio-desktop-package-archive-install-extract:
+rstudio-desktop-package-archive-install:
   pkg.installed:
-    - names:
-      - curl
-      - tar
-      - gzip
+    - names: {{ rstudio.desktop.pkg.deps }}
   file.directory:
     - name: {{ rstudio.desktop.pkg.archive.name }}
     - user: {{ rstudio.rootuser }}
@@ -18,7 +15,7 @@ rstudio-desktop-package-archive-install-extract:
     - mode: 755
     - makedirs: True
     - require_in:
-      - archive: rstudio-desktop-package-archive-install-extract
+      - archive: rstudio-desktop-package-archive-install
     - recurse:
         - user
         - group
