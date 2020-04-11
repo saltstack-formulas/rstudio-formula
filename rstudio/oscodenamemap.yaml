@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+{#### macro to populate each oscode entry ####}
+
+{% macro os_codename(name, part) %}
+{{ codename|default(part, true) }}:
+  server:
+    use_upstream_package_directurl: false
+    pkg:
+      archive:
+        uri_part: {{ part }}
+      directurl:
+        uri_part: {{ part }}
+  desktop:
+    use_upstream_package_directurl: false
+    pkg:
+      archive:
+        uri_part: {{ part }}
+      directurl:
+        uri_part: {{ part }}
+{% endmacro %}
+
+
+{##### oscode list #####}
+## first param is oscodename
+## second param is part of rstudio filename
+## third param is oscodename if lsb-release is not installed
+
+{{ os_codename('trusty', 'trusty/amd64') }}
+{{ os_codename('xenial', 'xenial/amd64') }}
+{{ os_codename('bionic', 'bionic/amd64') }}
+
+{{ os_codename('jessie', 'trusty/amd64', 'Debian GNU/Linux 8 (jessie)') }}
+{{ os_codename('stretch'', 'debian9/amd64','Debian GNU/Linux 9 (stretch)') }}
+{{ os_codename('buster', 'bionic/amd64', 'Debian GNU/Linux 10 (buster)') }}
+
+{{ os_codename('Suse', 'opensuse/x86_64') }}
+{{ os_codename('Suse', 'opensuse15/x86_64') }}
+
+{{ os_codename('Fedora-27', 'centos7/x86_64', 'Fedora 27 (Twenty Seven)') }}
+{{ os_codename('Fedora-28', 'fedora28/x86_64', 'Fedora 28 (Twenty Eight)') }}
+{{ os_codename('Fedora-29', 'fedora28/x86_64', 'Fedora 29 (Twenty Nine)') }}
+{{ os_codename('Fedora-30', 'fedora28/x86_64', 'Fedora 30 (Thirty)') }}
+{{ os_codename('Fedora-31', 'fedora28/x86_64', 'Fedora 31 (Thirty One)') }}
+{{ os_codename('Fedora-32', 'fedora28/x86_64', 'Fedora 32 (Thirty Two)') }}
+{{ os_codename('Fedora-33', 'fedora28/x86_64', 'Fedora 33 (Thirty Three)') }}

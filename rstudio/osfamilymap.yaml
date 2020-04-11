@@ -1,0 +1,88 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Setup variables using grains['os_family'] based logic.
+# You just need to add the key:values for an `os_family` that differ
+# from `defaults.yaml`.
+# Only add an `os_family` which is/will be supported by the formula
+#
+# If you do not need to provide defaults via the `os_family` grain,
+# you will need to provide at least an empty dict in this file, e.g.
+# osfamilymap: {}
+---
+{%- if grains.os == 'MacOS' %}
+    {%- set macos_rootuser = salt['cmd.run']("stat -f '%Su' /dev/console") %}
+    {%- set macos_rootgroup = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
+{%- endif %}
+
+Debian:
+  server:
+    pkg:
+      deps:
+        - r-base
+      name: rstudio-server
+      directurl:
+        name: rstudio-server-rhel
+        suffix: '-amd64.deb'
+  desktop:
+    pkg:
+      archive:
+        suffix: '-amd64-debian.tar.gz'
+      directurl:
+        suffix: '-amd64.deb'
+
+RedHat:
+  server:
+    pkg:
+      deps:
+        - epel-release
+        - r-base
+      name: rstudio-server-rhel
+      directurl:
+        suffix: '-x86_64.rpm'
+  desktop:
+    pkg:
+      archive:
+        suffix: '-x86_64-fedora.tar.gz'
+      directurl:
+        suffix: '-x86_64.rpm'
+
+Suse:
+  server:
+    pkg:
+      deps:
+        - libgfortran43
+        - R-base
+      name: rstudio-server
+      directurl:
+        suffix: '-x86_64.rpm'
+  desktop:
+    pkg:
+      archive:
+        suffix: '-x86_64.fedora.tar.gz'
+      directurl:
+        suffix: '-x86_64.rpm'
+
+Windows:
+  server:
+    pkg:
+      name: RStudio
+      archive:
+        suffix: '.zip'
+  desktop:
+    pkg:
+      name: RStudio
+      archive:
+        uri_dir: windows
+        suffix: '.zip'
+
+MacOS:
+  rootuser: {{ macos_rootuser | d('') }}
+  rootgroup: {{ macos_rootgroup | d('') }}
+  desktop:
+    use_upstream_archive: false
+    use_upstream_macapp: true
+    pkg:
+      name: RStudio
+      archive:
+        suffix: '.dmg'

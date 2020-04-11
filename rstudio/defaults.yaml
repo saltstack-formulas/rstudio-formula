@@ -1,0 +1,69 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+rstudio:
+  version: 
+  rootuser: root
+  rootgroup: root
+  dir:
+    tmp: /tmp/rstudio
+    archive: /opt/rstudio
+
+  server:
+    version: 1.2.5033
+    config_file: /etc/default/desktop.ini
+    config: {}
+    environ_file: /etc/default/desktop.sh
+    environ: []
+    use_upstream_archive: false
+    use_upstream_package_directurl: false
+    pkg:
+      name: rstudio
+      directurl:
+        uri: https://download1.rstudio.org/server
+        uri_part: ''
+        source: None
+        source_hash: None
+        # https://rstudio.com/code-signing
+        keyserver: keys.gnupg.net
+        keyid: 3F32EE77E331692F
+
+  desktop:
+    version: 1.2.5033
+    config_file: /etc/default/desktop.ini
+    config: {}
+    environ_file: /etc/default/desktop.sh
+    environ: []
+    use_upstream_archive: true
+    use_upstream_package_directurl: false
+    pkg:
+      name: rstudio
+      archive:
+        suffix: tar.gz
+        uri: https://download1.rstudio.org/desktop
+        uri_part: ''
+        source: None
+        source_hash: None
+        enforce_toplevel: False
+        options: '--strip-components=1'
+      directurl:
+        uri: https://download1.rstudio.org/desktop
+        uri_part: ''
+        source: None
+        source_hash: None
+        # https://rstudio.com/code-signing
+        keyserver: keys.gnupg.net
+        keyid: 3F32EE77E331692F
+
+  # Just here for testing
+  added_in_defaults: defaults_value
+  winner: defaults
+
+  retry_option:
+    # https://docs.saltstack.com/en/latest/ref/states/requisites.html#retrying-states
+    attempts: 3
+    until: True
+    interval: 60
+    splay: 10
+  linux:
+    altpriority: 0
