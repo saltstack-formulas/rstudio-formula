@@ -9,14 +9,14 @@
 rstudio-desktop-macos-app-clean-files:
   file.absent:
     - names:
-      - {{ rstudio.desktop.dir.tmp }}
+      - {{ rstudio.dir.tmp }}
       - /Applications/RStudio.app
 
     {%- else %}
 
-rstudio-desktop-macos-app-clean-unavailable:
+rstudio-desktop-macos-app-clean-unapplicable:
   test.show_notification:
     - text: |
-        The rstudio desktop macpackage is only available on MacOS
+        The rstudio desktop macpackage is only applicable on MacOS
 
     {%- endif %}
