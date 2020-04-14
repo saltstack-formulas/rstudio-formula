@@ -8,5 +8,5 @@ include:
              {%- if grains.os_family in ('MacOS',) %}
   - .macapp.clean
              {%- else %}
-  - .{{ 'package.clean' if rstudio.server.pkg.use_upstream_packageurl else 'archive.clean' }}
+  - .{{ 'package' if rstudio.server.pkg.use_upstream_packageurl else 'archive' }}.clean
              {%- endif %}
