@@ -7,7 +7,7 @@ Layout/LineLength:
   # Based on https://github.com/PyCQA/flake8-bugbear#opinionated-warnings (`B950`)
   Max: 88
 
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   Exclude:
     - 'bin/kitchen'
 
