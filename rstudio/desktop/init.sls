@@ -10,3 +10,4 @@ include:
              {%- else %}
   - .{{ 'package' if rstudio.server.pkg.use_upstream_packageurl else 'archive' }}
              {%- endif %}
+  - .config

@@ -18,6 +18,10 @@ rstudio:
       use_upstream_packageurl: true
       use_upstream_archive: false
       name: rstudio
+      deps:
+        - curl
+        - gzip
+        - tar
       packageurl:
         suffix: '-amd64.deb'
         uri: https://download2.rstudio.org
