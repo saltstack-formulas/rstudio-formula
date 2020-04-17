@@ -18,25 +18,28 @@
 Debian:
   server:
     pkg:
-      deps:
-        - r-base
       name: rstudio-server
       packageurl:
         name: rstudio-server-rhel
         suffix: '-amd64.deb'
+      deps:
+        - xz-utils
   desktop:
     pkg:
       archive:
         suffix: '-amd64-debian.tar.gz'
       packageurl:
         suffix: '-amd64.deb'
+      deps:
+        - xz-utils
 
 RedHat:
   server:
     pkg:
+             {%- if 'osfinger' in grains and grains.os not in ('Fedora',) %}
       deps:
         - epel-release
-        - R
+             {%- endif %}
       name: rstudio-server-rhel
       packageurl:
         suffix: '-x86_64.rpm'
@@ -51,8 +54,7 @@ Suse:
   server:
     pkg:
       deps:
-        - libgfortran43
-        - R-base
+        - libgfortran5
       name: rstudio-server
       packageurl:
         suffix: '-x86_64.rpm'

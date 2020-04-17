@@ -51,22 +51,22 @@
 {# from https://rstudio.com/products/rstudio/#rstudio-server #}
 ## first param is codename
 ## second param is part of rstudio filename
-## third param is codename if lsb-release is not installed
+## The rest are checksums
 
-{{ code('trusty', 'trusty/amd64', package_trusty, archive_trusty, server_trusty) }}
-{{ code('jessie', 'trusty/amd64', package_trusty, archive_trusty, server_trusty, 'Debian GNU/Linux 8 (jessie)') }}
-{{ code('xenial', 'xenial/amd64', package_xenial, None, server_trusty) }}
-{{ code('stretch', 'debian9/amd64', package_debian, archive_debian, server_debian, 'Debian GNU/Linux 9 (stretch)')}}
-{{ code('bionic', 'bionic/amd64',   package_bionic, archive_bionic, server_bionic) }}
-{{ code('buster', 'bionic/amd64',   package_bionic, archive_bionic, server_bionic, 'Debian GNU/Linux 10 (buster)') }}
-{{ code('Suseold', 'opensuse/x86_64',  package_opensuse, None, server_opensuse) }}
-{{ code('Suse', 'opensuse15/x86_64', package_opensuse15, None, server_opensuse15) }}
-{{ code('CentOS Linux 7 (Core)', 'centos7/x86_64', package_centos, archive_centos, server_centos) }}
-{{ code('CentOS Linux 8 (Core)', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
-{{ code('Fedora-27', 'centos7/x86_64', package_centos, None, 'server_centos', 'Fedora 27 (Twenty Seven)') }}
-{{ code('Fedora-28', 'fedora28/x86_64', package_fedora, None, server_fedora, 'Fedora 28 (Twenty Eight)') }}
-{{ code('Fedora-29', 'fedora28/x86_64', package_fedora, None, server_fedora, 'Fedora 29 (Twenty Nine)') }}
-{{ code('Fedora-30', 'fedora28/x86_64', package_fedora, None, server_fedora, 'Fedora 30 (Thirty)') }}
-{{ code('Fedora-31', 'fedora28/x86_64', package_fedora, None, server_fedora, 'Fedora 31 (Thirty One)') }}
-{{ code('Fedora-32', 'fedora28/x86_64', package_fedora, None, server_fedora, 'Fedora 32 (Thirty Two)') }}
-{{ code('Fedora-33', 'fedora28/x86_64', package_fedora, None, server_fedora, 'Fedora 33 (Thirty Three)') }}
+{{ code('Ubuntu-14.04', 'trusty/amd64', package_trusty, archive_trusty, server_trusty) }}
+{{ code('Ubuntu-16.04', 'xenial/amd64', package_xenial, None, server_trusty) }}
+{{ code('Ubuntu-18.04', 'bionic/amd64',   package_bionic, archive_bionic, server_bionic) }}
+{{ code('Debian-8', 'trusty/amd64', package_trusty, archive_trusty, server_trusty) }}
+{{ code('Debian-9', 'debian9/amd64', package_debian, archive_debian, server_debian)}}
+{{ code('Debian-10', 'bionic/amd64',   package_bionic, archive_bionic, server_bionic) }}
+{{ code('Suse', 'opensuse/x86_64',  package_opensuse, None, server_opensuse) }}
+{{ code('Leap-15', 'opensuse15/x86_64', package_opensuse15, None, server_opensuse15) }}
+{{ code('CentOS Linux-7', 'centos7/x86_64', package_centos, archive_centos, server_centos) }}
+{{ code('CentOS Linux-8', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
+{{ code('Fedora-27', 'centos7/x86_64',  package_centos, None, server_centos) }}
+{{ code('Fedora-28', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
+{{ code('Fedora-29', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
+{{ code('Fedora-30', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
+{{ code('Fedora-31', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
+{{ code('Fedora-32', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
+{{ code('Fedora-33', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
