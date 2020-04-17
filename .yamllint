@@ -14,7 +14,7 @@ ignore: |
   .kitchen/
   bin/kitchen
   rstudio/osfamilymap.yaml
-  rstudio/oscodenamemap.yaml
+  rstudio/osfingermap.yaml
   pillar.example
 
 yaml-files:
