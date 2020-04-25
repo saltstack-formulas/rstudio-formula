@@ -2,31 +2,31 @@
 # vim: ft=yaml
 ---
 {# from https://rstudio.com/products/rstudio/#rstudio-server #}
-{%- set package_trusty = '89dc2e2281286e6e68f3bdb8dd07a630c9d4938c773c4aaef3d9d8f726de3443' %}
-{%- set package_xenial = 'a1591ed7fd84d4e7ed57f1e7dc5306bfc0279d8369d3ea613b78a37c9c8938f0' %}
-{%- set package_debian = '27c5972210a97fb3c1d364b4502b89b040d156453db235716ec5807dc41304f3' %}
-{%- set package_bionic = '08eaa295f939b410b4ccab74cf056b67edaa0dfb5a504f8117a31428e38a1ef5' %}
-{%- set package_opensuse = '9c1e200c4fc09f0e4667ed79f57ce70df4c9a6d0a49476f66404dce4aeebfd55' %}
-{%- set package_opensuse15 = '98fd2258dd15db7b9880bde1bb8f205c433c3154264190f2df47722691eb1e20' %}
-{%- set package_centos = '38cf43c66ed28c2331f5144ea9ece525a9de91e7d71d2e06329d8cd9bfe8b272' %}
-{%- set package_fedora = '452bc0d00412369d8cd1762c6c168cfb0bc1797e504f0e1f949f8707e9144e02' %}
+{%- set desktop_trusty = '485e27578fb8bb29c022dbb8c2b0c7d2a440f13db4a66b49bfa7fa54c564ed62' %}
+{%- set desktop_xenial = 'e2f15cc278c9e18be0112b923442b9694ff2d186d211ae3d0c8ddc7f9a7be5c9' %}
+{%- set desktop_stretch = '92684c84347b8cf040b8b92498ca248ed51682895016bdc618b5ff4aee806151' %}
+{%- set desktop_bionic = '99e0f57b7426aa180db1b08163eba7a1a2e1ab033f2a632f6b852d7b23ca0f98' %}
+{%- set desktop_opensuse12 = 'a419cef8e29ff22e24ad20e2de009186a91e114b54af9712d225b8e5b4ae45b5' %}
+{%- set desktop_opensuse15 = 'c050eb25c925b1db28bf1739d984e8eab75a7077fd2dbbb46d9a8a9bdbe01ad9' %}
+{%- set desktop_centos = '5ab559e28674cb2af1027325fd598775de5f2d14db62ea132e16de13f32e839f' %}
+{%- set desktop_fedora = 'cb9620445a617f68ec804731dd618986abab8f22eb089b29ffaf448a8be9f5cd' %}
 
-{%- set archive_trusty = '58b04578a896bf37dfc8d6201f48b403a9bf55742b12bf210d7938f5bb53e59e' %}
-{%- set archive_bionic = '2945b2e3084e98b722875ef65e40ca704a8b871128498843ee40ccf5cfe38899' %}
-{%- set archive_centos = '5151359190470f1b9c02e9ccda4e3c9edf8d183c6ab13526633fa6a40074ff58' %}
-{%- set archive_debian = 'f9cdb21085aa8228c9bd66d61b0b2bdfff4ef231acc8c45c461053ccecbbaa72' %}
+{%- set archive_trusty = '8e830b9515f7142fe4a76bcb27fd9093d31218850411a89b95bea522bf80705c' %}
+{%- set archive_bionic = '46d553b12f11cd4c24962cfd1b8f394ecaf7a24efc42fbe007978db9ef9f2473' %}
+{%- set archive_centos = 'a8a002032d714bcce7fb1c98f940ef41e827b492184ffb9d94dc7c832ff34f38' %}
+{%- set archive_stretch = 'a738504904248c45c0539d64b7baf20f0aab293ab2a406e7bec9a87ec139d5c4' %}
 
-{%- set server_trusty = '6cc1cb0f8f19f3f3538d78a8cd7ae5fe07d88f20f0752d258b0c4b42e5924908' %}
-{%- set server_debian = 'de620b89e4e2a00215e78b202e7c326825f7bcc07b1d5a59c0e4233f2ed39eae' %}
-{%- set server_bionic = '62b1fb2f6f48342518d75b6efb6e721b5a49991d1642e3b879e4c5ed03cee875' %}
-{%- set server_centos = '3c3295e544b6a04cd372961b86c91ec02d6b6dbe0a9acf7373451c5fc595072e' %}
-{%- set server_fedora = 'f4e4f3e88e1ce0a55753da9a11749850014c62904ee41205e527c6fba8c1d375' %}
-{%- set server_opensuse = '48dfaccedcedcf39df4e238653125ae6782cab6e877142ab4fa983c609a2998d' %}
-{%- set server_opensuse15 = '6ff354e281142f7edb492501a7caa18c0ea61df3a6211af10549e569a4a787be' %}
+{%- set server_trusty = 'f6d212f2fdc1e1b4e605256a91b69fed6b61c046374934d262b2c3f1e234c0d6' %}
+{%- set server_stretch = '5deb09b91177725bc5dc4d420070a8bcbad4eeaf92593888f2e862c214929f52' %}
+{%- set server_bionic = 'ed4f765d85165c78967892f65c1b167059d9fd4977e273126e946e45db0372f8' %}
+{%- set server_centos = '81dba9c6a5914cd2b6f60d8236c2749c1462dbb1d1516fea7f05b243ce74c49c' %}
+{%- set server_fedora = 'b2b214123dcd6c2a9bde405bb7130788c386d87996c9af91bd0bb843b691daa4' %}
+{%- set server_opensuse12 = 'fedb226a1bcbbb7073c9488a36a1340fbf23e8afc89003d245c015104742d50d' %}
+{%- set server_opensuse15 = '8b3d9dbde1d0be0303fbb0020256e6503f457bbe37580555889f338eb0b5de44' %}
 
 {#### macro generate codename blocks  ####}
 
-{% macro code(name, part, package_checksum, archive_checksum, server_checksum, codename=none) %}
+{% macro code(name, part, desktop_checksum, archive_checksum, server_checksum, codename=none) %}
 {{ codename|default(name, true) }}:
   server:
     pkg:
@@ -37,13 +37,13 @@
   desktop:
     pkg:
       use_upstream_packageurl: true
-      use_upstream_package_archive: false
+      use_upstream_desktop_archive: false
       archive:
         uri_part: {{ part }}
         source_hash: {{ archive_checksum }}
       packageurl:
         uri_part: {{ part }}
-        source_hash: {{ package_checksum }}
+        source_hash: {{ desktop_checksum }}
 {% endmacro %}
 
 
@@ -53,20 +53,20 @@
 ## second param is part of rstudio filename
 ## The rest are checksums
 
-{{ code('Ubuntu-14.04', 'trusty/amd64', package_trusty, archive_trusty, server_trusty) }}
-{{ code('Ubuntu-16.04', 'xenial/amd64', package_xenial, None, server_trusty) }}
-{{ code('Ubuntu-18.04', 'bionic/amd64',   package_bionic, archive_bionic, server_bionic) }}
-{{ code('Debian-8', 'trusty/amd64', package_trusty, archive_trusty, server_trusty) }}
-{{ code('Debian-9', 'debian9/amd64', package_debian, archive_debian, server_debian)}}
-{{ code('Debian-10', 'bionic/amd64',   package_bionic, archive_bionic, server_bionic) }}
-{{ code('Suse', 'opensuse/x86_64',  package_opensuse, None, server_opensuse) }}
-{{ code('Leap-15', 'opensuse15/x86_64', package_opensuse15, None, server_opensuse15) }}
-{{ code('CentOS Linux-7', 'centos7/x86_64', package_centos, archive_centos, server_centos) }}
-{{ code('CentOS Linux-8', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
-{{ code('Fedora-27', 'centos7/x86_64',  package_centos, None, server_centos) }}
-{{ code('Fedora-28', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
-{{ code('Fedora-29', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
-{{ code('Fedora-30', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
-{{ code('Fedora-31', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
-{{ code('Fedora-32', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
-{{ code('Fedora-33', 'fedora28/x86_64', package_fedora, None, server_fedora) }}
+{{ code('Ubuntu-14.04', 'trusty/amd64', desktop_trusty, archive_trusty, server_trusty) }}
+{{ code('Ubuntu-16.04', 'xenial/amd64', desktop_xenial, None, server_trusty) }}
+{{ code('Ubuntu-18.04', 'bionic/amd64',   desktop_bionic, archive_bionic, server_bionic) }}
+{{ code('Debian-8', 'trusty/amd64', desktop_trusty, archive_trusty, server_trusty) }}
+{{ code('Debian-9', 'debian9/amd64', desktop_stretch, archive_stretch, server_stretch)}}
+{{ code('Debian-10', 'bionic/amd64',   desktop_bionic, archive_bionic, server_bionic) }}
+{{ code('Suse', 'opensuse/x86_64',  desktop_opensuse12, None, server_opensuse12) }}
+{{ code('Leap-15', 'opensuse15/x86_64', desktop_opensuse15, None, server_opensuse15) }}
+{{ code('CentOS Linux-7', 'centos7/x86_64', desktop_centos, archive_centos, server_centos) }}
+{{ code('CentOS Linux-8', 'fedora28/x86_64', desktop_fedora, None, server_fedora) }}
+{{ code('Fedora-27', 'centos7/x86_64',  desktop_centos, None, server_centos) }}
+{{ code('Fedora-28', 'fedora28/x86_64', desktop_fedora, None, server_fedora) }}
+{{ code('Fedora-29', 'fedora28/x86_64', desktop_fedora, None, server_fedora) }}
+{{ code('Fedora-30', 'fedora28/x86_64', desktop_fedora, None, server_fedora) }}
+{{ code('Fedora-31', 'fedora28/x86_64', desktop_fedora, None, server_fedora) }}
+{{ code('Fedora-32', 'fedora28/x86_64', desktop_fedora, None, server_fedora) }}
+{{ code('Fedora-33', 'fedora28/x86_64', desktop_fedora, None, server_fedora) }}

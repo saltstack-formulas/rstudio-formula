@@ -77,7 +77,7 @@ Windows:
       archive:
         uri_part: windows
         suffix: '.zip'
-        source_hash: 7fd3bc1b7464ec0d69e1d88b12f3e824684a507b6431927441138986cda59226
+        source_hash: 5d4cd64426ee0d9ad520861c86ea11783c16b0daff46006f75b1c2f50ae78f34
 
 MacOS:
   rootuser: {{ macos_rootuser | d('') }}
@@ -90,4 +90,4 @@ MacOS:
       macapp:
         uri_part: 'macos'
         suffix: dmg
-        source_hash: b67c987569e4638f14d64178ce34201e036f7dd318917f99a7624036c3f56885
+        source_hash: 74ea68eb92a02f6ced3172b8571a76ed3b1568668d6001d196aaafd826952746

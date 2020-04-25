@@ -9,7 +9,7 @@ rstudio:
     archive: /opt/rstudio
 
   server:
-    version: 1.2.5033
+    version: 1.2.5042
     config_file: /etc/default/desktop.ini
     config: {}
     environ_file: /etc/default/desktop.sh
@@ -31,7 +31,7 @@ rstudio:
         keyid: 3F32EE77E331692F
 
   desktop:
-    version: 1.2.5033
+    version: 1.2.5042
     config_file: /etc/default/desktop.ini
     config: {}
     environ_file: /etc/default/desktop.sh
