@@ -22,10 +22,6 @@ rstudio-desktop-package-archive-install:
         - mode
   archive.extracted:
     {{- format_kwargs(rstudio.desktop.pkg.archive) }}
-    - retry:
-        attempts: 3
-        until: True
-        interval: 60
-        splay: 10
+    - retry: {{ rstudio.retry_option|json }}
     - user: {{ rstudio.rootuser }}
     - group: {{ rstudio.rootgroup }}
