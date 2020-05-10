@@ -30,18 +30,18 @@
 {{ codename|default(name, true) }}:
   server:
     pkg:
-      use_upstream_packageurl: true
-      packageurl:
+      use_upstream_package: true
+      package:
         uri_part: {{ part }}
         source_hash: {{ server_checksum }}
   desktop:
     pkg:
-      use_upstream_packageurl: true
+      use_upstream_package: true
       use_upstream_desktop_archive: false
       archive:
         uri_part: {{ part }}
         source_hash: {{ archive_checksum }}
-      packageurl:
+      package:
         uri_part: {{ part }}
         source_hash: {{ desktop_checksum }}
 {% endmacro %}

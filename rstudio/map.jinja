@@ -48,15 +48,15 @@
            {%- endif %}
     {%- endif %}
 
-    {%- if rstudio[comp]['pkg']['use_upstream_packageurl'] %}
-           {%- if 'packageurl' in rstudio[comp]['pkg'] %}
-                  {%- set url = '%s/%s/%s/%s-%s%s'|format(rstudio[comp]['pkg']['packageurl']['uri'],
+    {%- if rstudio[comp]['pkg']['use_upstream_package'] %}
+           {%- if 'package' in rstudio[comp]['pkg'] %}
+                  {%- set url = '%s/%s/%s/%s-%s%s'|format(rstudio[comp]['pkg']['package']['uri'],
                                                                   comp,
-                                                          rstudio[comp]['pkg']['packageurl']['uri_part'],
+                                                          rstudio[comp]['pkg']['package']['uri_part'],
                                                           rstudio[comp]['pkg']['name'],
                                                           rstudio[comp]['version'],
-                                                          rstudio[comp]['pkg']['packageurl']['suffix']) %}
-                  {%- do rstudio[comp]['pkg']['packageurl'].update({ 'source': url }) %}
+                                                          rstudio[comp]['pkg']['package']['suffix']) %}
+                  {%- do rstudio[comp]['pkg']['package'].update({ 'source': url }) %}
            {%- endif %}
     {%- endif %}
 {%- endfor %}
