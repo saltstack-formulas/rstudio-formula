@@ -42,7 +42,7 @@
                                                           rstudio[comp]['pkg']['name'],
                                                           rstudio[comp]['version'],
                                                           rstudio[comp]['pkg']['archive']['suffix']) %}
-                  {%- do rstudio[comp]['config'].update({'path': rstudio.dir.archive + '/' + dir }) %},
+                  {%- do rstudio[comp]['config'].update({'path': rstudio.dir.archive + '/' + dir }) %}
                   {%- do rstudio[comp]['pkg']['archive'].update({ 'name': rstudio.dir.archive + '/' + dir,
                                                           'source': url }) %}
            {%- endif %}
