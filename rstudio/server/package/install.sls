@@ -14,7 +14,7 @@ rstudio-server-package-install-pkg:
     - names: {{ rstudio.server.pkg.deps|json }}
     - refresh: true
   cmd.run:
-    - name: curl -Lo {{ rstudio.dir.tmp }}/rstudio-server-{{ rstudio.server.version }}-{{ rstudio.server.pkg.packageurl.suffix }} {{ rstudio.server.pkg.packageurl.source }} # noqa 204
+    - name: curl -Lo {{ rstudio.dir.tmp }}/rstudio-server-{{ rstudio.server.version }}-{{ rstudio.server.pkg.package.suffix }} {{ rstudio.server.pkg.package.source }} # noqa 204
     - unless: test -f {{ rstudio.dir.tmp }}/rstudio-server-{{ rstudio.server.version }}
     - require:
       - file: rstudio-server-package-install-pkg
@@ -24,11 +24,11 @@ rstudio-server-package-install-pkg:
       # Check the hash sum. If check fails remove
       # the file to trigger fresh download on rerun
 rstudio-server-package-app-install:
-     {%- if 'source_hash' in rstudio.server.pkg.packageurl and rstudio.server.pkg.packageurl.source_hash %}
+     {%- if 'source_hash' in rstudio.server.pkg.package and rstudio.server.pkg.package.source_hash %}
   module.run:
     - name: file.check_hash
-    - path: {{ rstudio.dir.tmp }}/rstudio-server-{{ rstudio.server.version }}-{{ rstudio.server.pkg.packageurl.suffix }} # noqa 204
-    - file_hash: {{ rstudio.server.pkg.packageurl.source_hash }}
+    - path: {{ rstudio.dir.tmp }}/rstudio-server-{{ rstudio.server.version }}-{{ rstudio.server.pkg.package.suffix }} # noqa 204
+    - file_hash: {{ rstudio.server.pkg.package.source_hash }}
     - require:
       - cmd: rstudio-server-package-install-pkg
     - require_in:
@@ -40,10 +40,10 @@ rstudio-server-package-app-install:
      {%- endif %}
   pkg.installed:
     - sources:
-      - rstudio-server: {{ rstudio.dir.tmp }}/rstudio-server-{{ rstudio.server.version }}-{{ rstudio.server.pkg.packageurl.suffix }} # noqa 204
+      - rstudio-server: {{ rstudio.dir.tmp }}/rstudio-server-{{ rstudio.server.version }}-{{ rstudio.server.pkg.package.suffix }} # noqa 204
     - skip_verify: true
     - refresh: true
     - reload_modules: true
     - onlyif:
-      - {{ rstudio.server.pkg.use_upstream_packageurl }}
+      - {{ rstudio.server.pkg.use_upstream_package }}
       - {{ grains.os_family in ('RedHat', 'Debian', 'Suse') }}
