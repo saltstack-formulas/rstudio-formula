@@ -1,7 +1,7 @@
 .. _readme:
 
 rstudio-formula
-====================
+===============
 
 Formula to manage RStudio on GNU/Linux (server/desktop) and MacOS (desktop).
 
@@ -44,7 +44,7 @@ Available states
    :local:
 
 ``rstudio``
-^^^^^^^^^^^^
+^^^^^^^^^
 
 *Meta-state (This is a state that includes other states)*.
 
@@ -52,62 +52,62 @@ This installs from rstudio solution.
 
 
 ``rstudio.desktop``
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 This state will install rstudio desktop and configuration on MacOS and GNU/Linux.
 
 ``rstudio.desktop.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will uninstall rstudio desktop and configuration.
 
 ``rstudio.desktop.package``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will install rstudio desktop package.
 
 ``rstudio.desktop.package.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will uninstall rstudio desktop package.
 
 ``rstudio.desktop.archive``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will install rstudio desktop from archive.
 
 ``rstudio.desktop.archive.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will uninstall rstudio desktop directory.
 
 ``rstudio.desktop.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will uninstall rstudio desktop and configuration from MacOS and GNU/Linux.
 
 ``rstudio.server``
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 This state will install rstudio server on GNU/Linux.
 
 ``rstudio.server.package``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will install rstudio server package.
 
 ``rstudio.server.package.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will uninstall the rstudio server package.
 
 ``rstudio.server.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 This state will uninstall rstudio server from GNU/Linux.
 
 ``rstudio.clean``
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 *Meta-state (This is a state that includes other states)*.
 

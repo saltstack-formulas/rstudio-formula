@@ -3,11 +3,11 @@
 
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import rstudio with context %}
-{%- from tplroot ~ "/macros.jinja" import format_kwargs with context %}
+{%- from tplroot ~ "/files/macros.jinja" import format_kwargs with context %}
 
 rstudio-desktop-package-archive-install:
   pkg.installed:
-    - names: {{ rstudio.desktop.pkg.deps }}
+    - names: {{ rstudio.desktop.pkg.deps|json }}
   file.directory:
     - name: {{ rstudio.desktop.pkg.archive.name }}
     - user: {{ rstudio.rootuser }}
